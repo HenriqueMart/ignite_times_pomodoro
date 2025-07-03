@@ -18,8 +18,6 @@ export function Home(){
                             <option value="Projeto 1"/>
                             <option value="Projeto 2"/>
                             <option value="Faculdade"/>
-
-
                         </datalist>
 
                     <label>Durante</label>
