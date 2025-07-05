@@ -3,6 +3,7 @@ import { CountdownContainer, FormContainer, HomeContainer, MinutesAmountInput, S
 import { useForm } from 'react-hook-form'
 import {zodResolver} from '@hookform/resolvers/zod'
 import * as zod from 'zod' // Permitindo exportar tudo da biblioteca
+import { useState } from "react";
 
 
 const newCycleFormValidationSchema = zod.object({ //Validando objeto com esse validação nos campos
@@ -19,7 +20,17 @@ type newCycleFormData = zod.infer<typeof newCycleFormValidationSchema> //Esse in
 //<typeof> -> (TypeScript) Não podemos passar um variável do JS para TS, então convertemos om typeof. Esse função permite referenciar uma variável
 //Poderiamos fazer criando na mão com interface do TS, mesma coisa. 
 
+interface Cycle{
+    id: string
+    task: string
+    minuteAmount: number 
+    
+}
+
 export function Home(){
+        const [cycles, setCycle] = useState<Cycle[]>([]);
+        const [activeCycleId, setActiveCycleId] = useState<string | null>(null);
+
        const { register, handleSubmit, watch, reset} = useForm<newCycleFormData>({
         resolver: zodResolver(newCycleFormValidationSchema), //Passando a validação dos objetos para o formulário
         defaultValues: { // Passando como objeto os atributos que suas variável iniciadas com esses valores
@@ -29,9 +40,23 @@ export function Home(){
     });
 
         function handleCreateNewCycle(data: newCycleFormData){  //uncontrolled e Controlled
-           console.log(data);
+            const id = String(new Date().getTime()); //Utilizando minissegundo para id
+
+           const newCycle: Cycle = {
+            id,
+            task: data.task,
+            minuteAmount: data.minuteAmount,
+        }
+
+            setCycle((state) => [...cycles, newCycle]); // Sempre que o status dependeno do valor anterior, usar Arrow Function
+            setActiveCycleId(id);
+
            reset(); //Voltando para os valores originais, mas só volta para o valor definido no defaultValues
         }
+
+        const activeCycle = cycles.find(cycle => cycle.id === activeCycleId);
+
+        console.log(activeCycle);
 
         const task = watch('task');
         const isSubmitDisabled = !task;
