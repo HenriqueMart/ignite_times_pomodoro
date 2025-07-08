@@ -3,7 +3,8 @@ import { CountdownContainer, FormContainer, HomeContainer, MinutesAmountInput, S
 import { useForm } from 'react-hook-form'
 import {zodResolver} from '@hookform/resolvers/zod'
 import * as zod from 'zod' // Permitindo exportar tudo da biblioteca
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { differenceInSeconds } from "date-fns" //Comparar secondos
 
 
 const newCycleFormValidationSchema = zod.object({ //Validando objeto com esse validação nos campos
@@ -24,7 +25,7 @@ interface Cycle{
     id: string
     task: string
     minuteAmount: number 
-    
+    startDate: Date
 }
 
 export function Home(){
@@ -40,6 +41,8 @@ export function Home(){
         }
     });
 
+        
+
         function handleCreateNewCycle(data: newCycleFormData){  //uncontrolled e Controlled
             const id = String(new Date().getTime()); //Utilizando minissegundo para id
 
@@ -47,10 +50,12 @@ export function Home(){
             id,
             task: data.task,
             minuteAmount: data.minuteAmount,
+            startDate: new Date(),
         }
 
-            setCycle((state) => [...cycles, newCycle]); // Sempre que o status dependeno do valor anterior, usar Arrow Function
+            setCycle((state) => [...state, newCycle]); // Sempre que o status dependeno do valor anterior, usar Arrow Function
             setActiveCycleId(id);
+            setAmountSecondsPassed(0);
 
            reset(); //Voltando para os valores originais, mas só volta para o valor definido no defaultValues
         }
@@ -59,16 +64,37 @@ export function Home(){
 
         const allSeconds = activeCycle ? activeCycle.minuteAmount * 60 : 0;
         const currentSeconds = activeCycle ? allSeconds - amountSecondsPassed : 0;
-        const minutesAmount = Math.floor(currentSeconds / 60);
+        const minutesAmount = Math.floor(currentSeconds / 60); //Arredondamento para baixo
         const secondsAmount = currentSeconds % 60;
 
-        const minutes = String(minutesAmount).padStart(2, '0');
+        const minutes = String(minutesAmount).padStart(2, '0'); //Caso seja 1 cada decimail, coloca o zero na frente
         const seconds = String(secondsAmount).padStart(2, '0');
         
         console.log(activeCycle);
 
+        useEffect(() => {
+            if(activeCycle){
+                document.title = `${minutes}:${seconds}`
+            }
+            }, [minutes, seconds])
+            
+
         const task = watch('task');
         const isSubmitDisabled = !task;
+
+        useEffect(() => {
+            let interval: number;
+
+            if(activeCycle){
+                interval = setInterval(() => {
+                    setAmountSecondsPassed(differenceInSeconds(new Date(), activeCycle.startDate),)
+                }, 1000) //Sendo nativa do JS para contagem de intervalo, passando o que vai ocorrer nesse período, e depois o tempo quem que cada execução estará ocorrendo
+            }
+
+            return () => { //Usado para limpar utilização anterior
+                clearInterval(interval)
+            }
+        }, [activeCycle])
 
     return(
          <HomeContainer>
