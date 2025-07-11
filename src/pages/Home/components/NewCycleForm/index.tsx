@@ -1,14 +1,16 @@
 import { FormContainer, MinutesAmountInput, TaksInput } from "./style";
 import { useContext } from "react";
-import { CyclesContext } from "../../Index";
 import { useFormContext } from "react-hook-form";
+import { CyclesContext } from "../../../../Contexts/CyclesContext";
 
 export function NewCycleForm() {
 
     const {activeCycle} = useContext(CyclesContext)
     const {register} = useFormContext(); // Específico do Form para usar context específico, tendo um provider antes
     
-     const disable = !!activeCycle; //Convertendo para Boolean
+    const disable = !!activeCycle; //Convertendo para Boolean
+
+    
 
     return (
                 <FormContainer>
