@@ -1,69 +1,103 @@
-# React + TypeScript + Vite
+# 📘 Time Pomodoro
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> O projeto tem como objetivo permiti controle de tempo de estudo com a técnica Pomodoro, permitindo ter ciclos que possar gerir dependendo da necessidade do usuário para sua atividade.
+> Esse projeto consiste em um projeto react com Vite utilizando styled components, hook State, UseEffect e UseReduce e outras bibliotecas utilizadas.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tecnologias Utilizadas
 
-## Expanding the ESLint configuration
+- [React](https://reactjs.org/)
+- [Vite](https://vitejs.dev/)
+- [JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
+- [Styled Components](https://styled-components.com/) 
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 📸 Demonstração
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+| Tela Inicial | Tela de Histórico |
+|--------------|-----------------|
+| ![Home](/src/assets/readme/Home.webp)|![Histórico](/src/assets/readme/history.webp)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+## 📂 Estrutura de Pastas
+
+```bash
+src/
+├── @types/
+├── assets/
+├── components/
+├── Contexts/
+├── layouts
+├── reducers
+├── styles
+├── App.tsx
+└── Router.tsx
+└── main.tsx
+```
+## ⚙️ Funcionalidades
+
+- ✅ Adicionar novas ciclos de Tempo
+
+- ✅ Começar um ciclo, permitindo alterar routes(Página) e podendo atualizar o navegador e continuando o ciclo ativo
+
+- ✅ Parar ciclo
+
+- ✅ Histórico em local store
+
+# 🧠 Aprendizados
+
+- Uso de Hooks (useState, useEffect, useReducer)
+
+- Styled Components
+
+- Eslint
+
+- Routes
+
+- Diferencia de Controlled Vs UnControlled
+
+- Biblioteca de Form (react-hook-form)
+
+- Props Drilling (Contexto)
+
+- Compreendendo momentos de tornar parte do código em components
+
+- Immer
+
+# 🛠️ Como Rodar Localmente
+
+```bash
+
+# Clone o repositório
+git clone https://github.com/HenriqueMart/ignite_times_pomodoro
+
+# Acesse a pasta
+cd ignite_times_pomodoro
+
+# Instale as dependências
+npm install
+
+# Inicie o servidor de desenvolvimento
+npm run dev
+
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+# 🔗 Deploy
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+➡️ Clique aqui para acessar o código da aplicação [codigo](https://github.com/HenriqueMart/ignite_times_pomodoro)
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Ou:
+
+🟢 Veja visualmente o projeto [Site]() 
+
+# 🤝 Contribuições
+Sinta-se à vontade para abrir issues e enviar pull requests.
+
+# 📄 Licença
+Este projeto está sob a licença MIT.
+
+# 👨‍💻 Autor
+Feito por Desenvolvedor Henrique Martins

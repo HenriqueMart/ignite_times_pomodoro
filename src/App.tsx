@@ -1,6 +1,6 @@
 import {ThemeProvider} from 'styled-components';
 
-import { defaultTheme } from './styles/themes/default.js';
+import { defaultTheme  } from './styles/themes/default';
 import { GlobalStyle } from './styles/global.js';
 
 import { Router } from './Router.js';
