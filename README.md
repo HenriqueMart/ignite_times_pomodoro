@@ -1,6 +1,6 @@
 # 📘 Time_Pomodoro
 
-> O projeto tem como objetivo permiti controle de tempo de estudo com a técnica Pomodoro, permitindo ter ciclos que possar gerir dependendo da necessidade do usuário para sua atividade.
+> O projeto tem como objetivo permiti controle de tempo de estudo com a técnica de Pomodoro. Permitindo realização de ciclos que possam gerir dependendo da necessidade do usuário para suas atividades.
 > Esse projeto consiste em um projeto react com Vite utilizando styled components, hook State, UseEffect e UseReduce e outras bibliotecas utilizadas.
 
 ---
@@ -30,9 +30,9 @@ src/
 ├── assets/
 ├── components/
 ├── Contexts/
-├── layouts
-├── reducers
-├── styles
+├── layouts/
+├── reducers/
+├── styles/
 ├── App.tsx
 └── Router.tsx
 └── main.tsx
@@ -57,7 +57,7 @@ src/
 
 - Routes
 
-- Diferencia de Controlled Vs UnControlled
+- Diferenciar de Controlled Vs UnControlled
 
 - Biblioteca de Form (react-hook-form)
 
