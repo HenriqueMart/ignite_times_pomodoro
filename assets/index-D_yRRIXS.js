@@ -302,4 +302,4 @@ Please change the parent <Route path="${j}"> to <Route path="${j==="/"?"*":`${j}
 
     display: flex;
     flex-direction: column;
-`;function c4(){return te.jsxs(s4,{children:[te.jsx(u4,{}),te.jsx(d2,{})]})}function o4(){return te.jsx(m2,{children:te.jsxs(hs,{path:"/",element:te.jsx(c4,{}),children:[te.jsx(hs,{path:"/",element:te.jsx(AE,{})}),te.jsx(hs,{path:"/history",element:te.jsx(l4,{})})]})})}function f4(){return te.jsxs(m_,{theme:v_,children:[te.jsx(V2,{children:te.jsx(gE,{children:te.jsx(o4,{})})}),te.jsx(b_,{})]})}yb.createRoot(document.getElementById("root")).render(te.jsx(N.StrictMode,{children:te.jsx(f4,{})}));
+`;function c4(){return te.jsxs(s4,{children:[te.jsx(u4,{}),te.jsx(d2,{})]})}function o4(){return te.jsx(m2,{children:te.jsxs(hs,{path:"/",element:te.jsx(c4,{}),children:[te.jsx(hs,{path:"/",element:te.jsx(AE,{})}),te.jsx(hs,{path:"/history",element:te.jsx(l4,{})})]})})}function f4(){return te.jsxs(m_,{theme:v_,children:[te.jsx(V2,{basename:"/ignite_times_pomodoro",children:te.jsx(gE,{children:te.jsx(o4,{})})}),te.jsx(b_,{})]})}yb.createRoot(document.getElementById("root")).render(te.jsx(N.StrictMode,{children:te.jsx(f4,{})}));
