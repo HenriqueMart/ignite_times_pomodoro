@@ -1,4 +1,4 @@
-# 📘 Time Pomodoro
+# 📘 Time_Pomodoro
 
 > O projeto tem como objetivo permiti controle de tempo de estudo com a técnica Pomodoro, permitindo ter ciclos que possar gerir dependendo da necessidade do usuário para sua atividade.
 > Esse projeto consiste em um projeto react com Vite utilizando styled components, hook State, UseEffect e UseReduce e outras bibliotecas utilizadas.
@@ -91,7 +91,7 @@ npm run dev
 
 Ou:
 
-🟢 Veja visualmente o projeto [Site]() 
+🟢 Veja visualmente o projeto [Site](https://henriquemart.github.io/ignite_times_pomodoro/) 
 
 # 🤝 Contribuições
 Sinta-se à vontade para abrir issues e enviar pull requests.

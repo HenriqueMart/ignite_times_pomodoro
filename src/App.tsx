@@ -13,7 +13,7 @@ export function App() {
   return (
 
     <ThemeProvider theme={defaultTheme}> 
-      <BrowserRouter>
+      <BrowserRouter basename='/ignite_times_pomodoro'>
       <CyclesContextProvider>
         <Router/>
       </CyclesContextProvider>
